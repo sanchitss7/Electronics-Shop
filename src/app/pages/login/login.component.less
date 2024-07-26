@@ -1,0 +1,103 @@
+@import "../../../variables.less";
+.pen-title {
+	padding: 50px 0;
+	text-align: center;
+	letter-spacing: 2px;
+	h1 {
+		margin: 0 0 20px;
+		font-size: 48px;
+		font-weight: 300;
+	}
+}
+.form-module {
+    position: relative;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-top: 5px solid @primary;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    background: #f2fbff38;
+	.form {
+		padding: 40px;
+		&:nth-child(2) {
+			display: block;
+		}
+        img {
+            width: 130px;
+            margin: 0 auto 30px auto;
+            display: table;
+        }
+	}
+	input {
+        outline: none;
+        display: block;
+        width: 100%;
+        border: 1px solid @light-gray;
+        padding: 15px 22px;
+        box-sizing: border-box;
+        border-radius: 30px;
+        transition: 0.3s ease;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 30px;
+		&:focus {
+			border: 1px solid @primary;
+			color: @dark-gray;
+		}
+	}
+	button {
+        cursor: pointer;
+        background: @primary;
+        width: auto;
+        border: 0;
+        padding: 13px 45px;
+        color: #ffffff;
+        border-radius: 30px;
+        transition: 0.3s ease;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: table;
+        margin: 0 auto;
+		&:hover {
+			background: @primary-hover;
+		}
+	}
+	
+}
+
+@keyframes scrollBackground {
+    from {
+      background-position: 50% 0;
+    }
+    to {
+      background-position: 50% 422px;
+    }
+  }
+  
+  @-webkit-keyframes scrollBackground {
+    from {
+      background-position: 50% 0;
+    }
+    to {
+      background-position: 50% 422px;
+    }
+  }
+  @-moz-keyframes scrollBackground {
+    from {
+      background-position: 50% 0;
+    }
+    to {
+      background-position: 50% 422px;
+    }
+  }
+  @-o-keyframes scrollBackground {
+    from {
+      background-position: 50% 0;
+    }
+    to {
+      background-position: 50% 422px;
+    }
+  }
+
+  
