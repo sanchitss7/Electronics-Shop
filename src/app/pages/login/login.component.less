@@ -4,16 +4,22 @@
 	text-align: center;
 	letter-spacing: 2px;
 	h1 {
-		margin: 0 0 20px;
+		margin: 0 auto 20px auto;
 		font-size: 48px;
-		font-weight: 300;
+		font-weight: 400;
+    color: @primary;
+    display: table;
+    border-bottom: 4px solid;
+    text-shadow: 2px 2px 0px #bccbd0;
 	}
 }
 .form-module {
     position: relative;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: thin solid #ddd;
     border-top: 5px solid @primary;
+    border-bottom: 5px solid @primary;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     background: #f2fbff38;
