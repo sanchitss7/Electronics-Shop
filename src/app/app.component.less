@@ -4,6 +4,7 @@
     height: 100%;
     background: #fff url('src/assets/images/bg-repeat.jpg') repeat center top;
     overflow: hidden;
+    background-size: 50%;
     animation: scrollBackground 30s linear infinite;
     -webkit-animation: scrollBackground 30s linear infinite;
     -moz-animation: scrollBackground 30s linear infinite;
@@ -12,12 +13,14 @@
     top: 0;
     z-index: -1;
     opacity: 0.18;
+    
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -51px;
+        margin-left: -51px;
+    }
+
 }
 
-.logo-wall img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -51px;
-    margin-left: -51px;
-}
