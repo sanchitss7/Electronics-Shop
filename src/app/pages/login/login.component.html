@@ -7,11 +7,21 @@
         <div class="module form-module col-md-9 mx-auto">
             <div class="row">
                 <div class="form">
-                    <form>
+                    <form [formGroup]="loginDetails">
                         <img src="../assets/images/user.png" alt="">
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="Password" />
-                        <button>Login</button>
+                        <div class="inputBlock">
+                            <input formControlName="username" type="text" placeholder="Username" />
+                            <span class="errorText"
+                                *ngIf="this.loginDetails.controls.username.errors!=null && submitted">Please enter user
+                                name</span>
+                        </div>
+                        <div class="inputBlock">
+                            <input formControlName="password" type="password" placeholder="Password" />
+                            <span class="errorText"
+                                *ngIf="this.loginDetails.controls.password.errors!=null && submitted">Please enter
+                                password</span>
+                        </div>
+                        <button (click)="onLogin()">Login</button>
                     </form>
                 </div>
             </div>
