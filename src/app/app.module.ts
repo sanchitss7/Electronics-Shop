@@ -9,12 +9,15 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MasterService } from './services/master.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
