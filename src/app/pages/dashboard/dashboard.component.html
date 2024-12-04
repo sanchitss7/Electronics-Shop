@@ -1,97 +1,199 @@
-<div class="container-fluid top-info-boxes">
-    <div class="row">
-        <div class="col-3" *ngFor="let data of boxData | keyvalue">
-            <div class="top-boxes">
-                <div class="count">{{data.value}}</div>
-                <div class="title">{{data.key}}</div>
-            </div>
+<div class="container-fluid customerTable">
+    <section class="customer-data">
+    
+        <div class="w-100 customerContainerHead">
+            <h3 class="float-start dashboardHeading">Today's Dashboard</h3>
+            <a class="float-end current-date" href="javascript:;"> <strong><i class="fa fa-calendar"></i> 22-4-2020 <i
+                        class="fa fa-caret-down"></i></strong></a>
         </div>
+        <div class="row">
 
-        <div class="col-6">
-            <div class="top-boxes">
-                <div *ngFor="let data of earningData | keyvalue">
-                    <div class="count">{{data.value}}</div>
-                    <div class="title">{{data.key}}</div>
+            <div class="col-xl-6 col-xxl-5 d-flex">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Opening Stock</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-0 box-bottom-text">
+                                        <span> <i class="mdi mdi-arrow-bottom-right"></i> 300
+                                        </span>
+                                        <span class="text-muted">Yesterday</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Sale Stock</h5>
+                                        </div>
+                                    </div>
+                                    <div class="mb-0 box-bottom-text">
+                                        <span> <i class="mdi mdi-arrow-bottom-right"></i> 78,621
+                                        </span>
+                                        <span class="text-muted">Yesterday</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Purchase Stock</h5>
+                                        </div>
+                                    </div>
+                                    <div class="mb-0 box-bottom-text">
+                                        <span> <i class="mdi mdi-arrow-bottom-right"></i> 150
+                                        </span>
+                                        <span class="text-muted">Yesterday</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Closing Stock</h5>
+                                        </div>
+                                    </div>
+                                    <div class="mb-0 box-bottom-text">
+                                        <span> <i class="mdi mdi-arrow-bottom-right"></i> 22
+                                        </span>
+                                        <span class="text-muted">Today</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="container-fluid">
-    <div class="row">
-
-        <div class="col-lg-6 best-selling-table global-table-style">
-            <div class="table-heading">
-                <h2>EMI remider</h2>
+            <div class="col-xl-6 col-xxl-7 chart-box">
+                <div class="card flex-fill w-100">
+                    <div class="card-header">
+                        <div class="card-actions float-end">
+                            <button 
+                                class="btn btn-primary">Update</button>
+                        </div>
+                        <h5 class="card-title mb-0">Purchase & Sales Chart</h5>
+                    </div>
+                    <div class="card-body py-3">
+                        <div class="chart chart-sm">
+                            <div style="display: block">
+                                <div class="chart-container">
+                                    <canvas height="40vh" width="80vw" baseChart
+                                      [datasets]="chartData"
+                                      [labels]="chartLabels"
+                                      [options]="chartOptions"
+                                      [chartType]="chartType">
+                                    </canvas>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="table-content">
-                <table class="table table-striped">
+
+            <div class="w-100"></div>
+
+       
+
+        </div>
+
+
+    </section>
+    <section class="customer-data">
+        <div class="col-xl-12 brandStockDetails">
+            <div class="w-100 customerContainerHead">
+                <h3 class="dashboardHeading">Current Brand Stock</h3>
+            </div>
+            <ul class="brandStocklist">
+                <li class="brandStock">Vivo<span>52</span></li>
+                <li class="brandStock">Oppo<span>12</span></li>
+                <li class="brandStock">Samsumg<span>23</span></li>
+                <li class="brandStock">Apple<span>41</span></li>
+                <li class="brandStock">iqoo<span>12</span></li>
+                <li class="brandStock">Poco<span>44</span></li>
+                <li class="brandStock">Motorola<span>09</span></li>
+                <li class="brandStock">OnePlus<span>10</span></li>
+
+            </ul>
+        </div>
+       
+        </section>
+    <section class="customer-data">
+        <div class="col-xl-12 brandStockDetails Emi-reminders">
+            <div class="w-100 customerContainerHead">
+                <h3 class="dashboardHeading">Emi Reminders</h3>
+                <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Customer Name</th>
-                            <th>Coming EMI date</th>
-                            <th>Product Name</th>
-                            <th>Emi price</th>
+                            <th scope="col">Sr. No</th>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Product Details</th>
+                            <th scope="col">Emi Date</th>
+                            <th scope="col">Emi Amount</th>
+                            <th class="text-end" scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let custemi of customeremiremider">
-                            <td>{{ custemi.userName }}</td>
-                            <td>{{ custemi.emiDate | date : 'dd/MM/YYYY' }}</td>
-                            <td>{{ custemi.productName }}</td>
-                            <td>{{ custemi.emiAmount | currency: 'INR':'symbol':'1.0-0' }}</td>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>+91 98765 43210</td>
+                            <td>iPhone 14 Pro, 256GB</td>
+                            <td>2024-12-05</td>
+                            <td><i class="fa fa-inr"></i> 5000</td>
+                            <td class="text-end"><button class="btn btn-primary">Done</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>+91 91234 56789</td>
+                            <td>Samsung Galaxy S23 Ultra</td>
+                            <td>2024-12-10</td>
+                            <td><i class="fa fa-inr"></i> 8000</td>
+                            <td class="text-end"><button class="btn btn-primary">Done</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Michael Johnson</td>
+                            <td>+91 99887 65432</td>
+                            <td>Dell XPS 13, 16GB RAM</td>
+                            <td>2024-12-15</td>
+                            <td><i class="fa fa-inr"></i> 12000</td>
+                            <td class="text-end"><button class="btn btn-primary">Done</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Emily Davis</td>
+                            <td>+91 87654 32109</td>
+                            <td>MacBook Air M2</td>
+                            <td>2024-12-20</td>
+                            <td><i class="fa fa-inr"></i> 5000</td>
+                            <td class="text-end"><button class="btn btn-primary">Done</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Chris Lee</td>
+                            <td>+91 90123 45678</td>
+                            <td>PlayStation 5</td>
+                            <td>2024-12-25</td>
+                            <td><i class="fa fa-inr"></i> 8000</td>
+                            <td class="text-end"><button class="btn btn-primary">Done</button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="col-lg-6 best-offers-table global-table-style">
-            <div class="table-heading">
-                <h2>Best offers</h2>
-            </div>
 
-            <div class="table-content">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Offer Name</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let offer of bestoffer">
-                            <td>{{ offer.name }}</td>
-                            <td>{{ offer.dtstart }}</td>
-                            <td>{{ offer.dtend }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
-        <div class="col-lg-12 best-selling-table global-table-style">
-            <div class="table-heading">
-                <h2>Best Selling Products</h2>
-            </div>
-            <div class="table-content">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let product of bestproduct">
-                            <td>{{ product.productName }}</td>
-                            <td>{{ product.quantity }}</td>
-                            <td>{{ product.price | currency: 'INR':'symbol':'1.0-0' }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+        </section>
 </div>

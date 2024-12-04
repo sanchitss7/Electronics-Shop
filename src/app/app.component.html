@@ -1,6 +1,3 @@
-<app-header *ngIf="showHeader"></app-header>
-<div id="main">
-    <router-outlet></router-outlet>
-    <div *ngIf="!showHeader" class="logo-wall"></div>
-</div>
-<app-footer *ngIf="showHeader"></app-footer>
+<app-header *ngIf="showHead"></app-header>
+<router-outlet></router-outlet>
+<app-footer *ngIf="showHead"></app-footer>

@@ -1,0 +1,496 @@
+<div class="container-customerDetails">
+  <div class="body-customerDetails">
+    <div class="customer-details-section">
+      <div class="customer-details-data">
+        <div class="row">
+
+          <section class="personal-container">
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <h3>Personal Details</h3>
+                </div>
+                <div class="col-md-6 text-end">
+                  <button routerLink="/customers" class="btn btn-primary update-btn"><i class="fa fa-undo"></i> Back to
+                    Customer List</button>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>First Name</label>
+                  <input type="text" required minlength="3" minlength="3" name="firstname" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Last Name</label>
+                  <input type="text" minlength="3" name="lastname" class="form-control">
+
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Mobile</label>
+                  <input type="tel" minlength="10" maxlength="10" name="mobile" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Alternate Mobile</label>
+                  <input type="tel" minlength="10" maxlength="10" name="alternate_mobile" class="form-control">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control">
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label>Date Of Birth</label>
+                  <input type="date" name="dob" class="form-control">
+                </div>
+                <div class="w-100"></div>
+                <div class="form-group col-md-6">
+                  <label>Current Address</label>
+                  <textarea rows="5" name="current_address" class="form-control noresize"></textarea>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Permanent Address</label>
+                  <label class="custom-checkbox" for="sameCaddress">
+                    <input type="checkbox" name="sameCaddress" id="sameCaddress" value="checkedValue">
+                    <span class="custom-control-indicator">Same as Current</span>
+                  </label>
+                  <textarea rows="5" name="permanent_address" class="form-control noresize"></textarea>
+                </div>
+                <div class="action-button text-end col-md-12">
+                  <button type="Sumbit" class="btn btn-primary update-btn"><i class="fa fa-save"></i> Submit</button>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section class="kyc-container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3>Upload New Documents</h3>
+              </div>
+              <div class="new-entry col-md-12">
+                <form>
+                  <div class="row">
+                    <div class="form-group col-md-3"><label>Document Name</label>
+                      <select placeholder="Select Document" class="form-control" required>
+                        <option *ngFor="let doc of docids" [value]="doc.value">{{doc.value}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-3"><label>Document Number</label>
+                      <input required name="idno" id="" class="form-control" placeholder="Number" class="form-control">
+
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Upload copy</label>
+                      <input type="file" multiple class="form-control" required name="image">
+                    </div>
+                    <div class="form-group text-end col-md-2">
+                      <button type="Sumbit" class="btn btn-primary save-btn"><i class="fa fa-plus"></i> Add</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-12 mt-4 mb-2 kyc-docs">
+                <h5>KYC Documents</h5>
+              </div>
+              <ul class="documents-Thumbs col-md-12">
+                <li *ngFor="let img of imageSrc">
+                  <a href="" target="_blank"> <img [src]="img.src" alt=""></a>
+                  <strong style="text-transform: uppercase;">{{img.value}}</strong>
+                  <span>{{img.number}}</span>
+                  <a class="removeImg" (click)="confimModal()"><i class="fa fa-times"></i></a>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="friend-container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3>Family & Friends Contact Details</h3>
+              </div>
+              <div class="new-entry col-md-12">
+                <form>
+                  <div class="row">
+                    <div class="form-group col-md-2">
+                      <label>Relation</label>
+                      <select class="form-control" required name="relation">
+                        <option value="father">Father</option>
+                        <option value="mother">Mother</option>
+                        <option value="brother">Brother</option>
+                        <option value="sister">Sister</option>
+                        <option value="friend">Friend</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label>First Name</label>
+                      <input type="text" minlength="3" minlength="3" name="firstname" id="" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Last Name</label>
+                      <input type="text" minlength="3" name="lname" id="" class="form-control">
+
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Mobile Number</label>
+                      <input type="text" minlength="10" maxlength="10" name="mobile" class="form-control">
+
+                    </div>
+                    <div class="form-group text-end col-md-2">
+                      <button type="Sumbit" class="btn btn-primary save-btn"><i class="fa fa-plus"></i> Add</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="list-table-parent col-md-12">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>SR No.</th>
+                      <th>Relation</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Contact No.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Father</td>
+                      <td>Rajesh</td>
+                      <td>Sharma</td>
+                      <td>+91-9876543210</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Mother</td>
+                      <td>Sarita</td>
+                      <td>Verma</td>
+                      <td>+91-9123456789</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Brother</td>
+                      <td>Amit</td>
+                      <td>Kumar</td>
+                      <td>+91-9867534210</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Sister</td>
+                      <td>Pooja</td>
+                      <td>Rao</td>
+                      <td>+91-9786543210</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="transaction-container">
+
+            <div class="col-md-12 heading-title">
+              <h3>Transaction Details</h3> <button (click)="showModal()"
+                class="btn btn-primary btn-add new-transaction"><i class="fa fa-plus"></i>Add</button>
+            </div>
+
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>SR No.</th>
+                  <th>Date</th>
+                  <th>Brand Name</th>
+                  <th>Model No</th>
+                  <th>IMEI 1</th>
+                  <th>IMEI 2</th>
+                  <th>Mode</th>
+                  <th>Finance</th>
+                  <th>Tenuar</th>
+                  <th class="text-end">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>2023-11-15</td>
+                  <td>Samsung</td>
+                  <td>Galaxy S23</td>
+                  <td>356784568901234</td>
+                  <td>356784568901234</td>
+                  <td>EMI</td>
+                  <td>Yes</td>
+                  <td>12 months</td>
+                  <td class="text-end">75,000</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>2023-10-10</td>
+                  <td>Apple</td>
+                  <td>iPhone 14 Pro</td>
+                  <td>865497123654789</td>
+                  <td>865497123654789</td>
+                  <td>Cash</td>
+                  <td>No</td>
+                  <td>-</td>
+                  <td class="text-end">1,20,000</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>2023-09-25</td>
+                  <td>OnePlus</td>
+                  <td>11R</td>
+                  <td>875496312540987</td>
+                  <td>875496312540987</td>
+                  <td>EMI</td>
+                  <td>Yes</td>
+                  <td>9 months</td>
+                  <td class="text-end">45,000</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>2023-08-18</td>
+                  <td>Xiaomi</td>
+                  <td>Redmi Note 12</td>
+                  <td>756890123467891</td>
+                  <td>756890123467891</td>
+                  <td>Cash</td>
+                  <td>No</td>
+                  <td>-</td>
+                  <td class="text-end">18,000</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>2023-07-05</td>
+                  <td>Realme</td>
+                  <td>GT Neo 3</td>
+                  <td>654789321456087</td>
+                  <td>654789321456087</td>
+                  <td>EMI</td>
+                  <td>Yes</td>
+                  <td>6 months</td>
+                  <td class="text-end">30,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modalpopup-overlay confimationPopup danger" style="display: none;" id="confimationPopup">
+  <div class="modalpopup-content">
+    <div class="modalpopup-heading">
+      <h4>Are you sure ?</h4>
+    </div>
+    <div class="btnBlock-customerDetails col-md-12">
+      <button (click)="closeModal()" class="btn btn-cancel">No</button>
+      <button class="btn btn-primary" (click)="closeModal()" type="Sumbit">Yes</button>
+    </div>
+  </div>
+</div>
+
+<div class="modalpopup-overlay TransactionPopup" style="display: none;" id="NewTransaction">
+  <div class="modalpopup-content">
+    <span class="modalpopup-times" (click)="closeModal()"><i class="fa fa-times"></i></span>
+    <div class="modalpopup-heading">
+      <h4>Add New Transaction</h4>
+    </div>
+
+    <form>
+      <div class="col-12">
+        <div class="row">
+
+          <div class="w-100"></div>
+          <div class="form-group col-md-4 barcodeScan">
+            <!-- <input class="button" type="button" value="Search"> -->
+            <label>IMEI 1</label>
+            <input type="text" name="imei1" id="" class="form-control">
+          </div>
+          <div class="form-group col-md-4 barcodeScan">
+            <!-- <input class="button" type="button" value="Search"> -->
+
+            <label>IMEI 2</label>
+            <input type="text" name="imei2" id="" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Price</label>
+            <input type="text" name="price" id="" class="form-control">
+          </div>
+          <div class="w-100"></div>
+          <div class="form-group col-md-4">
+            <label>Brand</label>
+            <input type="text" name="brand" id="" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Model</label>
+            <input type="text" name="model" id="" class="form-control">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Color</label>
+            <input type="text" name="color" id="" class="form-control">
+          </div>
+
+
+          <div class="form-group col-md-4">
+            <label>Date of Purchase</label>
+            <input type="date" required class="form-control" id="myDate" name="date">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Mode of Payment</label>
+            <div class="radio-btn-grp">
+              <div class="radio-btn">
+                <input type="radio" value="Loan" name="radio-btn" id="radio-btn-two" checked>
+                <label for="radio-btn-two">Loan</label>
+              </div>
+              <div class="radio-btn">
+                <input type="radio" value="Cash" name="radio-btn" id="radio-btn-one">
+                <label for="radio-btn-one">Cash</label>
+              </div>
+            </div>
+          </div>
+          <div class="w-100"></div>
+          <div class="loan-data-container col-12">
+            <div class="row">
+              <div class="form-group col-md-4">
+                <label>Loan Number</label>
+                <input type="text" name="loan_number" id="" class="form-control">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Finance Name</label>
+                <input type="text" name="finance_name" id="" class="form-control">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Down Payment</label>
+                <input type="text" name="down_payment" id="" class="form-control">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Gross Tenure</label>
+                <select name="gtenure" class="form-control">
+                  <option value="1">1 Month</option>
+                  <option value="2">2 Months</option>
+                  <option value="3">3 Months</option>
+                  <option value="4">4 Months</option>
+                  <option value="5">5 Months</option>
+                  <option value="6">6 Months</option>
+                  <option value="7">7 Months</option>
+                  <option value="8">8 Months</option>
+                  <option value="9">9 Months</option>
+                  <option value="10">10 Months</option>
+                  <option value="11">11 Months</option>
+                  <option value="12">12 Months</option>
+                  <option value="13">13 Months</option>
+                  <option value="14">14 Months</option>
+                  <option value="15">15 Months</option>
+                  <option value="16">16 Months</option>
+                  <option value="17">17 Months</option>
+                  <option value="18">18 Months</option>
+                  <option value="19">19 Months</option>
+                  <option value="20">20 Months</option>
+                  <option value="21">21 Months</option>
+                  <option value="22">22 Months</option>
+                  <option value="23">23 Months</option>
+                  <option value="24">24 Months</option>
+                  <option value="25">25 Months</option>
+                  <option value="26">26 Months</option>
+                  <option value="27">27 Months</option>
+                  <option value="28">28 Months</option>
+                  <option value="29">29 Months</option>
+                  <option value="30">30 Months</option>
+                  <option value="31">31 Months</option>
+                  <option value="32">32 Months</option>
+                  <option value="33">33 Months</option>
+                  <option value="34">34 Months</option>
+                  <option value="35">35 Months</option>
+                  <option value="36">36 Months</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label>Net Tenure</label>
+                <select name="ntenure" class="form-control">
+                  <option value="1">1 Month</option>
+                  <option value="2">2 Months</option>
+                  <option value="3">3 Months</option>
+                  <option value="4">4 Months</option>
+                  <option value="5">5 Months</option>
+                  <option value="6">6 Months</option>
+                  <option value="7">7 Months</option>
+                  <option value="8">8 Months</option>
+                  <option value="9">9 Months</option>
+                  <option value="10">10 Months</option>
+                  <option value="11">11 Months</option>
+                  <option value="12">12 Months</option>
+                  <option value="13">13 Months</option>
+                  <option value="14">14 Months</option>
+                  <option value="15">15 Months</option>
+                  <option value="16">16 Months</option>
+                  <option value="17">17 Months</option>
+                  <option value="18">18 Months</option>
+                  <option value="19">19 Months</option>
+                  <option value="20">20 Months</option>
+                  <option value="21">21 Months</option>
+                  <option value="22">22 Months</option>
+                  <option value="23">23 Months</option>
+                  <option value="24">24 Months</option>
+                  <option value="25">25 Months</option>
+                  <option value="26">26 Months</option>
+                  <option value="27">27 Months</option>
+                  <option value="28">28 Months</option>
+                  <option value="29">29 Months</option>
+                  <option value="30">30 Months</option>
+                  <option value="31">31 Months</option>
+                  <option value="32">32 Months</option>
+                  <option value="33">33 Months</option>
+                  <option value="34">34 Months</option>
+                  <option value="35">35 Months</option>
+                  <option value="36">36 Months</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label>Loan Amount</label>
+                <input type="text" name="loan_amount" id="" class="form-control">
+              </div>
+              <div class="form-group col-md-4">
+                <label>EMI Amount</label>
+                <input type="text" name="emi_amount" id="" class="form-control">
+              </div>
+              <div class="form-group col-md-4">
+                <label>EMI Due Date</label>
+                <input type="date" name="emi_due_date" id="" class="form-control">
+              </div>
+              <div class="form-group col-md-4">
+                <label>EMI Start Date</label>
+                <input type="date" name="emi_start_date" id="" class="form-control">
+              </div>
+              <div class="form-group col-md-4">
+                <label>EMI End Date</label>
+                <input type="date" name="emi_end_date" id="" class="form-control">
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="w-100"></div>
+          <div class="form-group col-md-6">
+            <label>Comment</label>
+            <textarea rows="5" name="comment" id=""
+              class="form-control noresize">Won bluethoot speaker on scratch card</textarea>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Feedback</label>
+            <textarea rows="5" name="feedback" id=""
+              class="form-control noresize">Customer like offers and services</textarea>
+          </div>
+          <div class="btnBlock-customerDetails col-md-12 text-end">
+            <button type="reset" class="btn btn-cancel">Reset</button>
+            <button class="btn btn-primary" type="Sumbit">Submit</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

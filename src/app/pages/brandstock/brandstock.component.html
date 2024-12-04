@@ -1,0 +1,188 @@
+<div class="container-fluid brandstocklist">
+    <section class="customer-data">
+        <div class="w-100 customerContainerHead">
+            <h3 class="dashboardHeading float-left">Add New Stock</h3>
+            <!-- <button class="btn btn-add float-right"><i class="fa fa-plus"></i> Add</button> -->
+        </div>
+        <div class="new-entry col-md-12">
+            <div class="row">
+                <div class="form-group mb-4 col-md-3"><label>Brand</label>
+                    <select class="form-select">
+                       <option *ngFor="let brand of brands">
+                        {{brand.value}}
+                       </option>
+                      </select>
+                </div>
+                <div class="form-group mb-4 col-md-3"><label>Model No</label>
+                    <input type="text"  name="model No" id="" class="form-control">
+                </div>
+                <div class="form-group mb-4 col-md-3"><label>Storage/RAM</label>
+                    <input type="text"  name="color" placeholder="128/4" id="" class="form-control">
+                </div>
+                <div class="form-group mb-4 col-md-3"><label>Color</label>
+                    <input type="text"  name="color" id="" class="form-control">
+                </div>
+                <div class="form-group mb-4 col-md-3"><label>Price</label>
+                    <input type="text" name="price"  id="" class="form-control">
+                </div>
+                <div class="form-group col-md-3" hidden><label>Quantity</label>
+                    <input type="hidden"  value="1" name="quantity"  id="" class="form-control">
+                </div>
+                <div class="form-group col-md-3"><label>Date Of Purchase</label>
+                       <input type="date"  class="form-control" id="myDate"  name="date">
+                </div>
+                <div class="form-group col-md-3 barcodeScan">
+                    <button><i class="fa fa-qrcode" aria-hidden="true"></i> Scan</button>
+                    <label>IMEI 1</label>
+                    <input type="text" name="imei1" class="form-control">
+                </div>
+                <div class="form-group col-md-3 barcodeScan">
+                    <button><i class="fa fa-qrcode" aria-hidden="true"></i> Scan</button>
+                    <label>IMEI 2</label>
+                    <input type="text" name="imei2" id="" class="form-control">
+                </div>
+
+                <div class="form-group text-end col-md-12">
+                    <button  type="Sumbit" class="btn btn-primary save-btn"><i class="fa fa-plus"></i> Add Stock</button>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+    <section class="customer-data">
+        <div class="tabsStockNBrands">
+            <div class="row">
+            <div class="customerContainerHead col-6">
+                <h3 class="dashboardHeading float-left">Stock Details</h3>
+                <!-- <button class="btn btn-add float-right"><i class="fa fa-plus"></i> Add</button> -->
+            </div>
+            <div class="col-6">
+                <ul class="stock-status-bar text-end">
+                    <li><span class="status-title">Yest Opening</span> <span class="status-count">300</span></li>
+                    <li><span class="status-title">Yest Purchase</span> <span class="status-count">300</span></li>
+                    <li><span class="status-title">Yest Sale</span> <span class="status-count">300</span></li>
+                    <li><span class="status-title">Today Closing</span> <span class="status-count">300</span></li>
+                </ul>
+            </div>
+            </div>
+
+            <table class="table table-hover">
+               <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th title="Purchase Price">P/Price</th>
+                    <th>Purchase Date</th>
+                    <th>Status</th>
+                    <th>IMEI 1</th>
+                    <th>IMEI 2</th>
+                </tr>
+               </thead>
+               <tbody>
+                <tr>
+                    <td>Samsung</td>
+                    <td>Galaxy S22</td>
+                    <td>Phantom Black</td>
+                    <td>$799</td>
+                    <td>2023-01-15</td>
+                    <td>In Stock</td>
+                    <td>123456789012341</td>
+                    <td>123456789012342</td>
+                </tr>
+                <tr>
+                    <td>Apple</td>
+                    <td>iPhone 14</td>
+                    <td>Starlight</td>
+                    <td>$899</td>
+                    <td>2023-02-10</td>
+                    <td>In Stock</td>
+                    <td>223456789012343</td>
+                    <td>223456789012344</td>
+                </tr>
+                <tr>
+                    <td>OnePlus</td>
+                    <td>11 Pro</td>
+                    <td>Emerald Green</td>
+                    <td>$799</td>
+                    <td>2023-03-05</td>
+                    <td>Sold</td>
+                    <td>323456789012345</td>
+                    <td>323456789012346</td>
+                </tr>
+                <tr>
+                    <td>Xiaomi</td>
+                    <td>Redmi Note 13</td>
+                    <td>Frosted Blue</td>
+                    <td>$399</td>
+                    <td>2023-04-20</td>
+                    <td>In Stock</td>
+                    <td>423456789012347</td>
+                    <td>423456789012348</td>
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>Pixel 7</td>
+                    <td>Obsidian</td>
+                    <td>$699</td>
+                    <td>2023-05-15</td>
+                    <td>Sold</td>
+                    <td>523456789012349</td>
+                    <td>523456789012350</td>
+                </tr>
+               
+                <tr>
+                    <td>Oppo</td>
+                    <td>Reno 8</td>
+                    <td>Shimmer Gold</td>
+                    <td>$599</td>
+                    <td>2023-06-10</td>
+                    <td>In Stock</td>
+                    <td>623456789012351</td>
+                    <td>623456789012352</td>
+                </tr>
+                <tr>
+                    <td>Vivo</td>
+                    <td>X80 Pro</td>
+                    <td>Cosmic Black</td>
+                    <td>$799</td>
+                    <td>2023-07-25</td>
+                    <td>Sold</td>
+                    <td>723456789012353</td>
+                    <td>723456789012354</td>
+                </tr>
+                <tr>
+                    <td>Huawei</td>
+                    <td>P50 Pro</td>
+                    <td>Silver Frost</td>
+                    <td>$899</td>
+                    <td>2023-08-05</td>
+                    <td>Sold</td>
+                    <td>823456789012355</td>
+                    <td>823456789012356</td>
+                </tr>
+                <tr>
+                    <td>Realme</td>
+                    <td>GT Neo 6</td>
+                    <td>Red</td>
+                    <td>$599</td>
+                    <td>2023-09-10</td>
+                    <td>Sold</td>
+                    <td>923456789012357</td>
+                    <td>923456789012358</td>
+                </tr>
+                <tr>
+                    <td>Motorola</td>
+                    <td>Edge 40</td>
+                    <td>Meteor Gray</td>
+                    <td>$699</td>
+                    <td>2023-10-15</td>
+                    <td>In Stock</td>
+                    <td>1023456789012359</td>
+                    <td>1023456789012360</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </section>
+</div>

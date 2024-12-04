@@ -1,23 +1,81 @@
-@import "variables.less";
+@import "~font-awesome/css/font-awesome.css";
 
+body,
+html,
 * {
-    box-sizing: border-box; 
-    font-family: @fontfamily;
-  } 
-  app-root {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    margin: 0;
-    width: 99.8%;
-  }
+    font-family: "Poppins", sans-serif;
+}
 
-  #main {
-    flex: 1;
-    margin: 0 auto;
-    width: 100%;
-    padding: 0 10px;
+.btn.btn-primary {
+    background: #085ad2;
+    border: thin solid #085ad2;
+}
+.btn.btn-cancel {
+    background: #555;
+    border: thin solid #555;
+}
+.btn.btn-primary,.btn.btn-cancel {
+    padding: 7px 20px;
+    border-radius: 45px;
+    font-size: 13px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+
+
+.btn.btn-primary:hover,.btn.btn-cancel:hover {
+    color: #fff;
+    background: #333333;
+    border: thin solid #333333;
+}
+
+table.table.table-hover tr th {
+    font-weight: 600;
+    color: #085ad2;
+}
+
+table.table.table-hover tr>* {
+    background: none;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600
+}
+
+section.customer-data{
+    padding: 30px 30px 30px 30px;
+    border: thin solid #dccfff;
+    width: 97%;
+    margin: 40px auto;
+    background: #f9f9ff;
+    border-radius: 5px;
+    box-shadow: 8px 8px 9px #00000014;
+}
+
+.confimationPopup.danger .modalpopup-heading h4 {
+    border-left: 6px solid #e42008;
+    border-right: 6px solid #e42008;
+    color: #e42008;
+  }
+  .confimationPopup.success  .modalpopup-heading h4{
+    border-left: 6px solid #0eae00;
+    border-right: 6px solid #0eae00;
+    color: #0eae00;
   }
   
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  .confimationPopup.danger .modalpopup-content .btn.btn-primary{
+    border-color: #e42008;
+    background-color: #e42008;
+  }
+  .confimationPopup.success .modalpopup-content .btn.btn-primary{
+    border-color: #0eae00;
+    background-color: #0eae00;
+  }

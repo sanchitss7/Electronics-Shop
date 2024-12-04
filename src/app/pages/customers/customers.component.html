@@ -1,0 +1,39 @@
+<div class="container-fluid customerTable">
+  <section class="customer-data">
+    <div class="customerContainerHead">
+      <h3 class="float-start">Customers List</h3>
+      <button class="add-new-button btn btn-primary float-end" routerLink="/customerdetails"> <i class="fa fa-plus"></i> New
+        Customer</button>
+      <div class="searchContainer float-end">
+        <input type="text" name="search" placeholder="Search by Name, Mobile, PAN, Aadhar" id="">
+        <!-- <button>Search</button> -->
+      </div>
+
+    </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>SR No.</th>
+            <th>Customer Name</th>
+            <th>Contact No.</th>
+            <th>Email</th>
+            <th>PAN Number</th>
+            <th>AADHAR Number</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td routerLink="/customerdetails">{{customer.id}}</td>
+            <td routerLink="/customerdetails">{{customer.name}}</td>
+            <td routerLink="/customerdetails">{{customer.mobile}}</td>
+            <td routerLink="/customerdetails">{{customer.email}}</td>
+            <td routerLink="/customerdetails">{{customer.pancard}}</td>
+            <td routerLink="/customerdetails">{{customer.adharcard}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+  </section>
+</div>
