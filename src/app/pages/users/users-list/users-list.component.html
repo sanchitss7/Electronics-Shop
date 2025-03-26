@@ -1,0 +1,32 @@
+<div>
+    <div>
+        <button (click)="create()">Create</button>
+    </div>
+    <div class="categorylistBlock">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Pan</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of usersList">
+                    <td>{{item.userDetails.name}}</td>
+                    <td>{{item.userDetails.email}}</td>
+                    <td>{{item.addUserDetails.address}}</td>
+                    <td>{{item.addUserDetails.mobile}}</td>
+                    <td>{{item.addUserDetails.pan}}</td>
+                    <td>
+                        <button (click)="edit(item.id)">Edit</button>
+                        <button (click)="delete(item.userDetails.id, item.createdBy)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

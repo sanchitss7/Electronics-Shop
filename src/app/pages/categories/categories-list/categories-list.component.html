@@ -1,0 +1,32 @@
+<div>
+    <div>
+        <button *ngIf="allowedActions?.isAdd" (click)="create()">Create</button>
+    </div>
+    <div class="categorylistBlock">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th>Created Date</th>
+                    <th>Level</th>
+                    <th>Parent Level</th>
+                    <th  *ngIf="allowedActions.isEdit || allowedActions.isDelete">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of categoriesList">
+                    <td>{{item.categoryName}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.createdOn | date : "dd-MMM-yyy"}}</td>
+                    <td>{{item.level}}</td>
+                    <td>{{item.parentCategoryName}}</td>
+                    <td>
+                        <button *ngIf="allowedActions?.isEdit" (click)="editCategory(item.id)">Edit</button>
+                        <button *ngIf="allowedActions?.isDelete" (click)="deleteCategory(item.id, item.createdBy)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

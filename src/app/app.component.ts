@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthGuard } from './services/auth-guard.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   
     showHeader: boolean = true;
   
-    constructor(private router: Router) {}
+    constructor(private router: Router, private auth : AuthGuard) {}
   
     ngOnInit() {
       this.router.events.subscribe(event => {
