@@ -1,0 +1,36 @@
+<div>
+    <div *ngIf="allowedActions.isAdd">
+        <button (click)="create()">Create</button>
+    </div>
+    <div class="categorylistBlock">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>sku</th>
+                    <th>Created Date</th>
+                    <th *ngIf="allowedActions.isEdit || allowedActions.isDelete">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of inventoriesList">
+                    <td>{{item.categoryName}}</td>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.sku}}</td>
+                    <td>{{item.createdOn | date : "dd-MMM-yyy"}}</td>
+                    <td>
+                        <button *ngIf="allowedActions.isEdit" (click)="edit(item.id)">Edit</button>
+                        <button *ngIf="allowedActions.isDelete" (click)="delete(item.id, item.createdBy)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

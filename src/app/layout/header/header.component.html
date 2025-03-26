@@ -2,18 +2,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <div class="logo-box"><span class=" d-lg-none d-md-block hamburgerMenu" (click)="Opensidebar()"> <i class="fa fa-bars"></i> </span><img src="assets/images/logo.png"></div>
+                <div class="logo-box"><span class=" d-lg-none d-md-block hamburgerMenu" (click)="Opensidebar()"> <i
+                            class="fa fa-bars"></i> </span><img src="assets/images/logo.png"></div>
             </div>
             <div class="col-md-9">
                 <div class="navigationMenu {{this.sidebarnav ? 'openSlidbar':''}}">
                     <ul>
-                        <li class="login-customer d-lg-none d-md-block"><span>  Welcome, {{userName}}</span><a class="closeNav" (click)="Closesidebar()"><i class="fa fa-times"></i></a></li>
-                        <li (click)="Closesidebar()"><a routerLink="/dashboard" routerLinkActive="active" href="">Dashboard</a></li>
-                        <li (click)="Closesidebar()"><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
-                        <li (click)="Closesidebar()"><a routerLink="/brandstock" routerLinkActive="active">Stock</a></li>
+                        <li class="login-customer d-lg-none d-md-block"><span> Welcome, {{userName}}</span><a
+                                class="closeNav" (click)="Closesidebar()"><i class="fa fa-times"></i></a></li>
+                        <li *ngFor="let item of updatedMenuList">
+                            <a *ngIf="item.isRequired" [routerLink]="item.link"
+                                [routerLinkActive]="['is-active']" [class.active]="item.active" (click)="setActive(item,$event)">{{item.label}}</a></li>
                         <li (click)="Closesidebar()" class="login-customer last-li">
                             <span class="d-none  d-lg-inline-block"> Welcome, {{userName}}</span>
-                            <a href="javascript:;" (click)="logout()">logout <i class="fa fa-power-off" aria-hidden="true"></i></a>
+                            <a href="javascript:;" (click)="logout()">logout <i class="fa fa-power-off"
+                                    aria-hidden="true"></i></a>
 
                         </li>
                     </ul>

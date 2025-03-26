@@ -1,0 +1,34 @@
+<div>
+    <div>
+        <button (click)="create()">Create</button>
+    </div>
+    <div class="categorylistBlock">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Name</th>
+                    <th>Product Name</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Order Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of ordersList">
+                    <td>{{item.orderId}}</td>
+                    <td>{{item.userName}}</td>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.paymentMethod}}</td>
+                    <td>{{item.orderDate | date : "dd-MMM-yyy"}}</td>
+                    <td>
+                        <button (click)="edit(item.id)">Edit</button>
+                        <button (click)="delete(item.id, item.createdBy)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
